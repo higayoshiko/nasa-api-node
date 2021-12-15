@@ -1,13 +1,14 @@
 {
-  "name": "red",
+  "name": "red-planet",
   "version": "1.0.0",
-  "description": "Getting weather and pictures of Mars",
-  "main": "app.js",
+  "description": "Getting the weather and pictures of Mars",
+  "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss public/css/style.css -w"
+    "compile:sass": "node-sass sass/main.scss public/css/style.css -w",
+    "start": "nodemon app.js"
   },
   "keywords": [
-    "Mars"
+    "Mars' weather"
   ],
   "author": "Yoshiko Higa",
   "license": "ISC",
