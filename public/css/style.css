@@ -16,16 +16,18 @@ html {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400; }
+  font-weight: 300; }
 
-.section-features {
+.section-features,
+.section-weather {
   position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center; }
 
-.bg-video__ctn {
+.bg-video__ctn,
+.weather-video__ctn {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,6 +46,33 @@ body {
 
 .container {
   margin: 0 auto; }
+
+.text-top {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.text-bottom {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.text-center {
+  position: relative;
+  top: 40%; }
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.half {
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 .features {
   display: grid;
@@ -85,12 +114,113 @@ body {
   .features__ctn:hover .features__img {
     filter: brightness(0.7) blur(5px); }
 
-.text-bottom {
+.weather-video__ctn:before {
+  content: '';
   position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(200, 75, 49, 0.4));
+  z-index: 1; }
 
-.text-center {
-  position: relative;
-  top: 40%; }
+.weather {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 3.2rem;
+  grid-row-gap: 3.2rem; }
+  .weather__temperature {
+    border: 3px solid #90AACB;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5); }
+    .weather__temperature--color {
+      background-color: rgba(144, 170, 203, 0.3);
+      width: 50%;
+      height: 100%; }
+      .weather__temperature--color .low {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem; }
+      .weather__temperature--color .low__sub {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.2rem;
+        text-transform: lowercase; }
+    .weather__temperature--trans .high {
+      position: absolute;
+      top: 50%;
+      right: 25%;
+      transform: translate(50%, -50%);
+      font-size: 3rem;
+      color: #94DAFF; }
+    .weather__temperature--trans .high__sub {
+      position: absolute;
+      top: 60%;
+      right: 25%;
+      transform: translate(50%, -50%);
+      font-size: 1.2rem;
+      text-transform: lowercase; }
+    .weather__temperature .weather__main {
+      color: #90AACB; }
+    .weather__temperature .weather__sub {
+      position: relative;
+      top: 33%;
+      font-size: 1.2rem; }
+  .weather__pressure {
+    border: 3px solid #F0BB62;
+    position: relative;
+    background-color: rgba(240, 187, 98, 0.2); }
+    .weather__pressure--content {
+      background-color: rgba(240, 187, 98, 0.6);
+      width: 100%;
+      height: 55%; }
+    .weather__pressure .weather__main {
+      color: #F0BB62; }
+  .weather__season {
+    border: 3px solid #34BE82;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2); }
+    .weather__season--content {
+      background-color: rgba(52, 190, 130, 0.8);
+      width: 100%;
+      height: 55%; }
+    .weather__season .weather__main {
+      color: #34BE82; }
+  .weather__wind {
+    border: 3px solid #D06224;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.7); }
+    .weather__wind--content {
+      background-color: rgba(208, 98, 36, 0.2);
+      width: 100%;
+      height: 55%; }
+    .weather__wind .weather__main {
+      color: #D06224; }
+  .weather__main {
+    font-size: 1.2rem;
+    font-weight: inherit;
+    letter-spacing: 2px; }
+  .weather .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.4rem;
+    text-transform: capitalize; }
+  .weather .content__sub {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    text-transform: lowercase; }
+  .weather .sol-num {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.1rem; }

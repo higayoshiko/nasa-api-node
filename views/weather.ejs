@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Mars' Weather</title>
-  </head>
-  <body>
-    <section class="section-weather">
-      <h1> <%= hello %> </h1>
-      <div class="bg-video__ctn">
-        <video class="bg-video" autoplay autoplay muted loop>
-        <source src="public/img/bg-vid3.mp4" type="video/mp4">
-        </video>
+
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="../public/css/style.css">
+  <title>Mars' Weather</title>
+</head>
+
+<body>
+  <section class="section-weather">
+    <div class="weather-video__ctn">
+      <video class="bg-video" autoplay autoplay muted loop>
+        <source src="../public/img/bg-vid3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="container">
+      <div class="weather">
+        <div class="weather__temperature features__ctn">
+          <h2 class="weather__main text-top">Temperature</h2>
+          <p class="weather__sub">Today's weather(&#8457;)</p>
+          <div class="weather__temperature--trans">
+            <p class="high">10&#176;</p>
+            <p class="high__sub">High</p>
+          </div>
+          <div class="weather__temperature--color half">
+            <p class="low">-80&#176;</p>
+            <p class="low__sub">Low</p>
+          </div>
+          <p class="sol-num">Sol 1080</p>
+        </div>
+        <div class="weather__pressure features__ctn">
+          <h2 class="weather__main text-top">Pressure</h2>
+          <div class="weather__pressure--content center">
+            <p class="content">742 Pa</p>
+            <p class="content__sub">mean pascal</p>
+          </div>
+          <p class="sol-num">Sol 1080</p>
+        </div>
+        <div class="weather__season features__ctn">
+          <h2 class="weather__main text-top">Season</h2>
+          <div class="weather__season--content center">
+            <p class="content">Spring</p>
+          </div>
+          <p class="sol-num">Sol 1080</p>
+        </div>
+        <div class="weather__wind features__ctn">
+          <h2 class="weather__main text-top">Wind</h2>
+          <div class="weather__wind--content center">
+            <p class="content">4.5 m/s</p>
+            <p class="content__sub">avg. speed</p>
+          </div>
+            <p class="sol-num">Sol 1080</p>
+        </div>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+</body>
+
 </html>
