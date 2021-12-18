@@ -1,3 +1,6 @@
 #Mac-Directories
 
 .DS_Store
+
+#security
+.env

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Mars' Weather</title>
 </head>
 
@@ -12,7 +12,7 @@
   <section class="section-weather">
     <div class="weather-video__ctn">
       <video class="bg-video" autoplay autoplay muted loop>
-        <source src="../public/img/bg-vid3.mp4" type="video/mp4">
+        <source src="img/bg-vid3.mp4" type="video/mp4">
       </video>
     </div>
     <div class="container">
@@ -21,37 +21,37 @@
           <h2 class="weather__main text-top">Temperature</h2>
           <p class="weather__sub">Today's weather(&#8457;)</p>
           <div class="weather__temperature--trans">
-            <p class="high">10&#176;</p>
+            <p class="high"><%= highTemp %>&#176;</p>
             <p class="high__sub">High</p>
           </div>
           <div class="weather__temperature--color half">
-            <p class="low">-80&#176;</p>
+            <p class="low"><%= lowTemp %>&#176;</p>
             <p class="low__sub">Low</p>
           </div>
-          <p class="sol-num">Sol 1080</p>
+          <p class="sol-num">Sol <%= solKeys %></p>
         </div>
         <div class="weather__pressure features__ctn">
           <h2 class="weather__main text-top">Pressure</h2>
           <div class="weather__pressure--content center">
-            <p class="content">742 Pa</p>
+            <p class="content"><%= pressure %> Pa</p>
             <p class="content__sub">mean pascal</p>
           </div>
-          <p class="sol-num">Sol 1080</p>
+          <p class="sol-num">Sol <%= solKeys %></p>
         </div>
         <div class="weather__season features__ctn">
           <h2 class="weather__main text-top">Season</h2>
           <div class="weather__season--content center">
-            <p class="content">Spring</p>
+            <p class="content"><%= season %></p>
           </div>
-          <p class="sol-num">Sol 1080</p>
+          <p class="sol-num">Sol <%= solKeys %></p>
         </div>
         <div class="weather__wind features__ctn">
           <h2 class="weather__main text-top">Wind</h2>
           <div class="weather__wind--content center">
-            <p class="content">4.5 m/s</p>
+            <p class="content"><%= wind %> m/s</p>
             <p class="content__sub">avg. speed</p>
           </div>
-            <p class="sol-num">Sol 1080</p>
+            <p class="sol-num">Sol <%= solKeys %></p>
         </div>
       </div>
     </div>
