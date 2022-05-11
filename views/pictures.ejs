@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <title>Mars Rover Pictures</title>
+</head>
+
+<body>
+
+  <section class="sections">
+    <div class="bg__ctn bg-overlay bg-overlay--pictures">
+      <img src="img/rover.jpg" class="bg--img" alt="rover-background">
+    </div>
+    <div class="container">
+      <div class="slider">
+        <img src="img/rover.jpg" class="slider-pic" alt="rover-background">
+        <div class="arrows arrows--right">
+          <div class="arrow">&#8250;</div>
+        </div>
+        <div class="arrows arrows--left">
+          <div class="arrow">&#8249;</div>
+        </div>
+      </div>
+      <div class="preview">
+        <% images.map(image => { %>
+        <img src=<%= image %> class="previews" alt="rover-mars-pictures">
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/script.js" charset="utf-8"></script>
+</body>
+
+</html>
