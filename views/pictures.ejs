@@ -16,29 +16,36 @@
 <body>
 
   <section class="sections">
-    <div class="bg__ctn bg-overlay bg-overlay--pictures">
-      <img src="img/rover.jpg" class="bg--img" alt="rover-background">
-    </div>
-    <div class="container">
-      <div class="slider">
-        <img src="img/rover.jpg" class="slider-pic" alt="rover-background">
-        <div class="arrows arrows--right">
-          <div class="arrow">&#8250;</div>
+    <form action="/pictures" method="POST">
+      <div class="bg__ctn bg-overlay bg-overlay--pictures">
+        <img src="img/rover.jpg" class="bg--img" alt="rover-background">
+      </div>
+      <div class="container">
+        <div class="slider">
+          <img src="" class="slider-pic" alt="rover-background">
+          <div class="arrows arrows--right">
+            <div class="arrow">&#8250;</div>
+          </div>
+          <div class="arrows arrows--left">
+            <div class="arrow">&#8249;</div>
+          </div>
         </div>
-        <div class="arrows arrows--left">
-          <div class="arrow">&#8249;</div>
+        <div class="preview">
+          <% images.map(image => { %>
+          <img src=<%= image %> class="previews" alt="rover-mars-pictures">
+          <% }) %>
         </div>
       </div>
-      <div class="preview">
-        <% images.map(image => { %>
-        <img src=<%= image %> class="previews" alt="rover-mars-pictures">
-        <% }) %>
+      <div class="pages__ctn">
+        <% for(let i = 1; i <= 25; i++){ %>
+        <input type="submit" class="pages" name=<%= i %> value=<%= i %>>
+        <% } %>
       </div>
-    </div>
+    </form>
   </section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="js/script.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/script.js" charset="utf-8"></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@ require("dotenv").config();
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-// app.use(express.json());
+app.use(express.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -75,6 +75,15 @@ app.get("/weather", function(req, res, next) {
   });
 });
 
+let clickedPage = 0;
+
+app.post("/pictures", function(req, res) {
+  clickedPage = Object.keys(req.body);
+
+  res.redirect("/pictures");
+
+});
+
 
 app.get("/pictures", function(req, res) {
 
@@ -98,7 +107,7 @@ app.get("/pictures", function(req, res) {
   //   });
   // });
 
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key=${keys}`
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${clickedPage}&api_key=${keys}`
 
   https.get(url, function(response) {
     let result = "";
@@ -114,7 +123,7 @@ app.get("/pictures", function(req, res) {
       const parsed = JSON.parse(result);
       // get img_src from the data
       const images = parsed.photos.map(img => img.img_src);
-
+      //send array of pictures
       res.render("pictures", {
         images: images
       });
