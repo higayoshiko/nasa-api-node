@@ -1,70 +1,106 @@
 $(document).ready(function() {
 
-  const previewArray = $(".preview").children();
-  const arrows = $(".arrows");
-  let currentSlide = $(".slider-pic").attr("src");
-  let currentImg = 0;
-  let currentpic = previewArray[currentImg].src;
-  let currentPreview = $(".preview>img")[currentImg];
-
   const pageList = $(".pages");
-  let currentPage = 0;
+  let currentPage = "";
 
-  //initial run. load the first pic of the page and add border to preview
+  //add click event to all the oages
+  pageList.on("click", function() {
+    //get the name attribute of this
+    const pageName = $(this).attr("name");
+    //set and store the name in the local storage and call it clickedPage
+    localStorage.setItem("clickedPage", pageName);
+  });
+
+  //while loading the pagr
+  window.onload = function() {
+    //check if there is a stored name
+    if (localStorage.length !== 0) {
+    //if there is, get the stored name and assign it to the existing variable
+      currentPage = localStorage.getItem("clickedPage");
+    //if there isnt, assign the number/name 1;
+    } else {
+      currentPage = "1";
+    }
+    //add active style to that specific page num
+    $(`.pages__ctn>.pages[name="${currentPage}"]`).addClass("pages--active");
+    //clear the storage after loading
+    localStorage.clear();
+  }
+
+  const previewArray = $(".preview").children();
+  let currentIndex = 0;
+  let currentSlide = $(".slider-pic").attr("src");
+  let currentSrc = previewArray[currentIndex].src;
+  let currentPreview = $(".preview>img")[currentIndex];
+
+  //initial run. find the first img and add border to it
   $(".preview").find(currentPreview).addClass("previews--active");
-  currentSlide = $(".slider-pic").attr("src", currentpic)
+  //assign the src & show the first img to the slide
+  currentSlide = $(".slider-pic").attr("src", currentSrc);
 
-  //add click event
+
+  const arrows = $(".arrows");
+  //add click event to both arrows
   arrows.on("click", function() {
-    //if it has this class
+    //determine if this has the arrows--left class
     if ($(this).hasClass("arrows--left") === true) {
+      //run the function to decrement current index num
       subtractCurrent();
-      currentpic = previewArray[currentImg].src;
-    //if it doesnt
+      //if it doesnt, increment the index num
     } else {
       addCurrent();
-      currentpic = previewArray[currentImg].src;
     }
   });
 
+
   function subtractCurrent() {
+    //run the function to remove the border to the current preview
     removeBorder();
-    if (currentImg > 0) {
-      currentImg--;
+    //if the index is more than 0, decrement
+    if (currentIndex > 0) {
+      currentIndex--;
+    //if it is less than 0, change to the last index of the array
     } else {
-      currentImg = previewArray.length - 1;
+      currentIndex = previewArray.length - 1;
     }
-    currentSlide = $(".slider-pic").attr("src", currentpic);
+    //change the src based on the current index of previews
+    currentSrc = previewArray[currentIndex].src;
+    //assign & show the current src to the slider
+    currentSlide = $(".slider-pic").attr("src", currentSrc);
+    //run function to add border to the new preview
     addBorder();
   }
 
   function addCurrent() {
+    //run the function to remove the border to the current preview
     removeBorder();
-    if (currentImg === previewArray.length - 1) {
-      currentImg = 0;
-      console.log(currentImg)
+    //if it is the last index, change to the first index
+    if (currentIndex === previewArray.length - 1) {
+      currentIndex = 0;
+    //if it is not, increment
     } else {
-      currentImg++;
-      console.log(currentImg)
+      currentIndex++;
     }
-    currentSlide = $(".slider-pic").attr("src", currentpic);
+    //change the src based on the current index of previews
+    currentSrc = previewArray[currentIndex].src;
+    //assign & show the current src to the slider
+    currentSlide = $(".slider-pic").attr("src", currentSrc);
+    //run function to add border to the new preview
     addBorder();
   }
 
   function removeBorder() {
-    currentPreview = $(".preview>img")[currentImg];
+    //get the current preview by index
+    currentPreview = $(".preview>img")[currentIndex];
+    //remove border
     $(".preview").find(currentPreview).removeClass("previews--active");
   }
 
   function addBorder() {
-    currentPreview = $(".preview>img")[currentImg];
+    //get the new preview by index
+    currentPreview = $(".preview>img")[currentIndex];
+    //add border
     $(".preview").find(currentPreview).addClass("previews--active");
   }
-
-  pageList.on("click", function() {
-
-    if($(this).hasClass("pages--active"))
-
-  });
 
 });

@@ -1,0 +1,59 @@
+.slider {
+  position: relative;
+  height: 70rem;
+  object-fit: cover;
+
+  &-pic {
+    height: 100%;
+    width: 100rem;
+  }
+
+  & .arrows {
+    position: absolute;
+    top: 50%;
+    height: 7rem;
+    width: 7rem;
+    border: 3px solid rgba($color-blue-dark, .5);
+    border-radius: 50%;
+    // background-color: rgba($color-blue, .2);
+    background-color: rgba($color-black, .4);
+    color: rgba($color-blue-dark, .5);
+    font-size: 7rem;
+    text-align: center;
+    cursor: pointer;
+
+    &--right {
+      right: -10rem;
+    }
+
+    &--left {
+      left: -10rem;
+    }
+
+    &:hover {
+      border: 3px solid rgba($color-blue-dark, 1);
+      background-color: rgba($color-black, .6);
+      box-shadow: .1rem .1rem .7rem .7rem rgba($color-blue-dark, .5);
+      transform: translateY(-1px);
+
+    &:active {
+      box-shadow: .1rem .1rem .7rem .2rem rgba($color-blue-dark, .8);
+      transform: translateY(1px);
+    }
+
+    .arrow {
+        color: rgba($color-blue-dark, 1);
+      }
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  }
+}

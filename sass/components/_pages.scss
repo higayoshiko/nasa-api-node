@@ -1,0 +1,29 @@
+.pages__ctn {
+  margin-top: 6rem;
+}
+
+.pages {
+  background-color: transparent;
+  border: none;
+  color: rgba($color-blue-dark, .8);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 .5rem 0;
+  cursor: pointer;
+  transition: all .1s;
+
+  &:hover {
+    transform: scale(1.4);
+    color: rgba($color-blue-dark, 1);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.pages.pages--active {
+  pointer-events: none;
+  text-decoration: underline;
+  color: rgba($color-blue-dark, .5);
+}
