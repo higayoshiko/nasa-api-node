@@ -2,4 +2,26 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+}
+
+
+@mixin media($size) {
+    @if $size == phone {
+      //600px
+        @media only screen and (max-device-width: 37.5em) { @content };
+    }
+    @if $size == tab-portrait {
+      //900px
+        @media only screen and (max-device-width: 56.25em) { @content };
+    }
+    @if $size == tab-landscape {
+      //1200px
+        @media only screen and (max-device-width: 75em) { @content };
+    }
+    @if $size == big-desktop {
+      //1800
+        @media only screen and (max-device-width: 112.5em) { @content };
+    }
 }

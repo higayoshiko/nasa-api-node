@@ -2,10 +2,29 @@
   position: relative;
   height: 70rem;
   object-fit: cover;
+  animation: moveDown 0.7s ease-in;
+
+  @include media(tab-landscape) {
+    height: 50rem;
+  }
+
+  @include media(phone) {
+    transform: translateY(-8rem);
+    height: 85vh;
+  }
 
   &-pic {
     height: 100%;
     width: 100rem;
+
+    @include media(tab-landscape) {
+      width: 70rem;
+    }
+
+    @include media(phone) {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   & .arrows {
@@ -22,27 +41,74 @@
     text-align: center;
     cursor: pointer;
 
+    @include media(tab-portrait) {
+      border: none;
+      color: rgba($color-black, .8);
+      background-color: rgba($color-white, .2);
+    }
+
+    @include media(phone) {
+      height: 10rem;
+      width: 10rem;
+    }
+
     &--right {
       right: -10rem;
+
+      @include media(tab-landscape) {
+        right: -5rem;
+      }
+
+      @include media(tab-portrait) {
+        right: 6rem;
+      }
+
     }
 
     &--left {
       left: -10rem;
+
+      @include media(tab-landscape) {
+        left: -5rem;
+      }
+
+      @include media(tab-portrait) {
+        left: 6rem;
+      }
+
     }
 
     &:hover {
       border: 3px solid rgba($color-blue-dark, 1);
       background-color: rgba($color-black, .6);
-      box-shadow: .1rem .1rem .7rem .7rem rgba($color-blue-dark, .5);
+      box-shadow: 0.1rem 0.1rem 0.7rem 0.7rem rgba($color-blue-dark, .5);
       transform: translateY(-1px);
+      -webkit-transform: translateY(-1px);
+      -moz-transform: translateY(-1px);
 
-    &:active {
-      box-shadow: .1rem .1rem .7rem .2rem rgba($color-blue-dark, .8);
-      transform: translateY(1px);
-    }
+      @include media(tab-portrait) {
+        border: none;
+        background-color: rgba($color-white, .5);
+        box-shadow: none;
+      }
 
-    .arrow {
+      &:active {
+        box-shadow: 0.1rem 0.1rem 0.7rem 0.2rem rgba($color-blue-dark, .8);
+        transform: translateY(1px);
+        -webkit-transform: translateY(1px);
+        -moz-transform: translateY(1px);
+
+        @include media(tab-portrait) {
+          box-shadow: none;
+        }
+      }
+
+      .arrow {
         color: rgba($color-blue-dark, 1);
+
+        @include media(tab-portrait) {
+           color: rgba($color-black, .8);
+        }
       }
     }
   }

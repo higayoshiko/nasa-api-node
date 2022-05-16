@@ -2,6 +2,11 @@
   display: flex;
   justify-content: center;
   margin-top: 5rem;
+  animation: moveRight .9s ease-in;
+
+  @include media(tab-landscape) {
+  margin-top: 1.2rem;
+  }
 }
 
 .previews {
@@ -16,10 +21,34 @@
   -moz-user-select: none;
   transition: all .2s;
 
+  @include media(tab-landscape) {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  @include media(phone) {
+    border: 1px solid rgba(0, 0, 0, 1);
+    z-index: 1000;
+    margin: 0;
+    height: 2rem;
+    width: 2rem;
+  }
+
   &--active {
     border: 3px solid rgba($color-blue-dark, 1);
     box-shadow: .1rem .1rem .7rem .3rem rgba($color-blue-dark, .7);
     transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
     margin: 0 2rem 0 2rem;
+
+    @include media(tab-landscape) {
+      border: 2px solid rgba($color-blue-dark, 1);
+    }
+
+    @include media(phone) {
+      border: 2px solid rgba($color-blue-dark, 1);
+      box-shadow: none;
+    }
   }
 }

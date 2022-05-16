@@ -15,18 +15,14 @@
       height: 100%;
 
       & .low {
-        position: absolute;
+        @include absoluteCenter;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         font-size: 3rem;
       }
 
       & .low__sub {
-        position: absolute;
+        @include absoluteCenter;
         top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         font-size: 1.2rem;
         text-transform: lowercase;
       }
@@ -118,28 +114,22 @@
   }
 
   & .content {
-    position: absolute;
+    @include absoluteCenter;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 2.4rem;
     text-transform: capitalize;
   }
 
   & .content__sub {
-    position: absolute;
+    @include absoluteCenter;
     top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 1.2rem;
     text-transform: lowercase;
   }
 
   & .sol-num {
-    position: absolute;
+    @include absoluteCenter;
     bottom: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 1.1rem;
   }
 }

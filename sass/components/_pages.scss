@@ -1,19 +1,38 @@
 .pages__ctn {
   margin-top: 6rem;
+  animation: moveLeft .9s ease-in;
+
+  @include media(tab-landscape) {
+    margin-top: 4rem;
+  }
+
+  @include media(phone) {
+    margin: 10rem 5rem 0;
+  }
 }
 
 .pages {
   background-color: transparent;
   border: none;
   color: rgba($color-blue-dark, .8);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin: 0 .5rem 0;
   cursor: pointer;
   transition: all .1s;
 
+  @include media(tab-portrait) {
+    font-size: 2rem;
+  }
+
+  @include media(phone) {
+    font-size: 3.2rem;
+  }
+
   &:hover {
     transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
     color: rgba($color-blue-dark, 1);
   }
 
