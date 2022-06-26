@@ -1,5 +1,5 @@
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const router = express.Router();
 
 let clickedPage = 0;
@@ -37,9 +37,9 @@ router.get("/", function(req, res) {
   //   });
   // });
 
-  const url = `http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${clickedPage}&api_key=${keys}`
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${clickedPage}&api_key=${keys}`
 
-  https.get(url, function(response) {
+  http.get(url, function(response) {
     let result = "";
     //run when getting the data
     response.on("data", function(data) {
