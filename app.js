@@ -3,7 +3,7 @@ const app = express();
 const path = require('node:path');
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
-const port = 3000;
+const port = process.env.PORT || 3000;
 //require DontEnv for environment variables from .env file
 require("dotenv").config();
 

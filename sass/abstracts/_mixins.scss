@@ -12,6 +12,10 @@
       //600px
         @media only screen and (max-device-width: 37.5em) { @content };
     }
+    @if $size == phone-landscape {
+      //600px
+        @media only screen and (max-device-width: 56.25em) and (orientation : landscape) { @content };
+    }
     @if $size == tab-portrait {
       //900px
         @media only screen and (max-device-width: 56.25em) { @content };

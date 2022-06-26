@@ -1,13 +1,18 @@
 .pages__ctn {
-  margin-top: 6rem;
+  line-height: 1.2rem;
+  margin-top: 4rem;
   animation: moveLeft .9s ease-in;
 
   @include media(tab-landscape) {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
 
   @include media(phone) {
-    margin: 10rem 5rem 0;
+    margin: 5rem 5rem 0;
+  }
+
+  @include media(phone-landscape) {
+    margin-top: 2rem;
   }
 }
 

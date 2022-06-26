@@ -2,7 +2,7 @@
   position: relative;
   height: 70rem;
   object-fit: cover;
-  animation: moveDown 0.7s ease-in;
+  animation: show 1s ease-in;
 
   @include media(tab-landscape) {
     height: 50rem;
@@ -11,6 +11,12 @@
   @include media(phone) {
     transform: translateY(-8rem);
     height: 85vh;
+  }
+
+  @include media(phone-landscape) {
+    transform: translateY(-1rem);
+    height: 90vh;
+    width: 100vw;
   }
 
   &-pic {
@@ -24,6 +30,10 @@
     @include media(phone) {
       width: 100%;
       object-fit: cover;
+    }
+
+    @include media(phone-landscape) {
+      width: 100%;
     }
   }
 
@@ -56,11 +66,11 @@
       right: -10rem;
 
       @include media(tab-landscape) {
-        right: -5rem;
+        right: -7rem;
       }
 
       @include media(tab-portrait) {
-        right: 6rem;
+        right: 5rem;
       }
 
     }
@@ -69,11 +79,11 @@
       left: -10rem;
 
       @include media(tab-landscape) {
-        left: -5rem;
+        left: -7rem;
       }
 
       @include media(tab-portrait) {
-        left: 6rem;
+        left: 5rem;
       }
 
     }

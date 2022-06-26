@@ -1,23 +1,3 @@
-@keyframes moveUp {
-  0% {
-    opacity: 0;
-    transform: translateY(10rem); }
-  80% {
-    transform: translateY(1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-10rem); }
-  80% {
-    transform: translateY(1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
 @keyframes moveRight {
   0% {
     opacity: 0;
@@ -37,6 +17,20 @@
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+@keyframes grow {
+  0% {
+    opacity: 0;
+    transform: scale(0.5); }
+  100% {
+    opacity: 1;
+    transform: translate(1); } }
+
+@keyframes show {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 *,
 *::after,
@@ -138,7 +132,7 @@ body {
     height: 25rem;
     width: 25rem;
     overflow: hidden;
-    animation: moveUp 0.5s ease-in;
+    animation: grow 0.7s ease-in;
     clip-path: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);
     -moz-clip-path: circle(50% at 50% 50%); }
@@ -182,7 +176,7 @@ body {
   position: relative;
   height: 70rem;
   object-fit: cover;
-  animation: moveDown 0.7s ease-in; }
+  animation: show 1s ease-in; }
   @media only screen and (max-device-width: 75em) {
     .slider {
       height: 50rem; } }
@@ -190,6 +184,11 @@ body {
     .slider {
       transform: translateY(-8rem);
       height: 85vh; } }
+  @media only screen and (max-device-width: 56.25em) and (orientation: landscape) {
+    .slider {
+      transform: translateY(-1rem);
+      height: 90vh;
+      width: 100vw; } }
   .slider-pic {
     height: 100%;
     width: 100rem; }
@@ -200,6 +199,9 @@ body {
       .slider-pic {
         width: 100%;
         object-fit: cover; } }
+    @media only screen and (max-device-width: 56.25em) and (orientation: landscape) {
+      .slider-pic {
+        width: 100%; } }
   .slider .arrows {
     position: absolute;
     top: 50%;
@@ -225,18 +227,18 @@ body {
       right: -10rem; }
       @media only screen and (max-device-width: 75em) {
         .slider .arrows--right {
-          right: -5rem; } }
+          right: -7rem; } }
       @media only screen and (max-device-width: 56.25em) {
         .slider .arrows--right {
-          right: 6rem; } }
+          right: 5rem; } }
     .slider .arrows--left {
       left: -10rem; }
       @media only screen and (max-device-width: 75em) {
         .slider .arrows--left {
-          left: -5rem; } }
+          left: -7rem; } }
       @media only screen and (max-device-width: 56.25em) {
         .slider .arrows--left {
-          left: 6rem; } }
+          left: 5rem; } }
     .slider .arrows:hover {
       border: 3px solid #56bbf1;
       background-color: rgba(0, 0, 0, 0.6);
@@ -272,14 +274,18 @@ body {
     -moz-user-select: none; }
 
 .pages__ctn {
-  margin-top: 6rem;
+  line-height: 1.2rem;
+  margin-top: 4rem;
   animation: moveLeft .9s ease-in; }
   @media only screen and (max-device-width: 75em) {
     .pages__ctn {
-      margin-top: 4rem; } }
+      margin-top: 3rem; } }
   @media only screen and (max-device-width: 37.5em) {
     .pages__ctn {
-      margin: 10rem 5rem 0; } }
+      margin: 5rem 5rem 0; } }
+  @media only screen and (max-device-width: 56.25em) and (orientation: landscape) {
+    .pages__ctn {
+      margin-top: 2rem; } }
 
 .pages {
   background-color: transparent;
@@ -312,15 +318,18 @@ body {
 .preview {
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
   animation: moveRight .9s ease-in; }
   @media only screen and (max-device-width: 75em) {
     .preview {
-      margin-top: 1.2rem; } }
+      margin-top: 2rem; } }
+  @media only screen and (max-device-width: 56.25em) and (orientation: landscape) {
+    .preview {
+      margin-top: -4rem; } }
 
 .previews {
-  height: 5rem;
-  width: 5rem;
+  height: 4rem;
+  width: 4rem;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.5);
   margin: 0 -1rem 0 -1rem;
@@ -339,6 +348,11 @@ body {
       margin: 0;
       height: 2rem;
       width: 2rem; } }
+  @media only screen and (max-device-width: 56.25em) and (orientation: landscape) {
+    .previews {
+      height: 2rem;
+      width: 2rem;
+      margin-right: -.5rem; } }
   .previews--active {
     border: 3px solid #56bbf1;
     box-shadow: 0.1rem 0.1rem 0.7rem 0.3rem rgba(86, 187, 241, 0.7);
