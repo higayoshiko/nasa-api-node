@@ -37,7 +37,7 @@ router.get("/", function(req, res) {
   //   });
   // });
 
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${clickedPage}&api_key=${keys}`
+  const url = `http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${clickedPage}&api_key=${keys}`
 
   https.get(url, function(response) {
     let result = "";
