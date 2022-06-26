@@ -4,6 +4,7 @@ const path = require('node:path');
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const port = process.env.PORT || 3000;
+const favicon = require('serve-favicon');
 //require DontEnv for environment variables from .env file
 require("dotenv").config();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public/css"));
 app.use("/img", express.static(__dirname + "public/img"));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 const picRoute = require("./routes/pictures");
 app.use("/pictures", picRoute);
